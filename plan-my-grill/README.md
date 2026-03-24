@@ -1,6 +1,6 @@
-# skills
+# plan-my-grill
 
-Personal Codex skills collection.
+Interrogate a plan or design until it is handoff-ready.
 
 `npx skills@latest add CratesSo/skills/plan-my-grill`
 

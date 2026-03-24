@@ -1,5 +1,5 @@
-This repository includes `plan-my-grill`, adapted from Matt Pocock's `grill-me`
-skill in `mattpocock/skills`.
+This skill, `plan-my-grill`, is adapted from Matt Pocock's `grill-me` skill in
+`mattpocock/skills`.
 
 Upstream source:
 https://github.com/mattpocock/skills/tree/main/grill-me
