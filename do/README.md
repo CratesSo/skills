@@ -1,7 +1,6 @@
 # do
 
 - Execute a prompt without tests, cleanup, or validation.
-- Designed for the Codex desktop app.
 
 ## How to use
 
