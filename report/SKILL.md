@@ -3,7 +3,7 @@ name: report
 description: User triggered.
 ---
 # HTML RESPONSE
-- Use only when user explicitly invokes `report next`, `report recap`, or `report recap+`.
+- Use only when user explicitly invokes `report <user_request>`, `report recap`, or `report recap+`.
 - Output only HTML. No markdown, no prose before or after the doc.
 - Always return complete HTML doc with `<!DOCTYPE html>`, `<html>`, `<head>`, and `<body>`.
 - Never output HTML into chat.
