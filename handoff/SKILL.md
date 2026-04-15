@@ -1,17 +1,13 @@
 ---
 name: handoff
-description: Summarize active thread into a fresh-thread continuation prompt.
+description: User triggered.
 ---
+Generate fenced prompt block for new thread in same workspace using only live thread context and any tool results already in scope. Never read sqlite state, session rollouts, hidden history.
 
-# HANDOFF
-- Generate a fenced prompt block for a fresh thread in same workspace.
-- Use only live thread context + tool results already in scope.
-- Never read sqlite state, session rollouts, hidden history.
-
-## WORKFLOW
-1. Infer current goals, done states, settled decisionss, task-specific constraints, key workspace anchors, blocking open risks, next useful action from active thread.
+# WORKFLOW
+1. Infer current goals, done states, settled decisions, task-specific constraints, key workspace anchors, and blocking open risks from active thread.
 2. Drop routine chatter, status noise, raw tool output, dead-end branches.
-3. If objectives, direction, or anchors are too fuzzy to hand off honestly, ask short clarifying questions instead of bluffing.
+3. If objectives, direction, or anchors are too fuzzy to hand off honestly, ask short clarifying questions.
 4. Emit a fenced prompt block inside a single code block and nothing else.
 
 ## PROMPT CONTRACT
@@ -28,29 +24,27 @@ Prompt block must not:
 ## TEMPLATE
 Use this shape, adapting section length to task:
 
-````markdown
 ```text
-This is context from previous thread; Informational only, not a to-do list. Do not proceed with any work until prompted with next steps.
+This is context from previous thread. Info only. Don't proceed with work until prompted.
 
-Goal:
+GOAL:
 - <current objectives>
 
-Done State:
+DONE STATE:
 - <what counts as finished>
 
-Settled Decisions:
+SETTLED DECISIONS:
 - <locked choices or constraints>
 
-Key Anchors to Re-Check:
+KEY ANCHORS:
 - <file, symbol, command, factual anchor>
 
-Blocking Open Risks:
+BLOCKING OPEN RISKS:
 - <only if they could change the next moves>
 ```
-````
 
-## STYLE
+### STYLE
 - Always balanced length.
 - Always compact, but preserving important info.
 - Always concrete anchors over abstract recap.
-- If a section would be empty or non-essential, omit it. Always inclide `Goal` and `Done state`.
+- If a section would be empty or non-essential, omit it, but always include `Goal` and `Done state`.

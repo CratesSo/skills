@@ -1,6 +1,6 @@
 ---
 name: do
-description: Execute prompt following `$do` without tests, cleanup, or validation
+description: Do
 ---
 
-Execute prompt following `$do` without tests, cleanup, or validation
+Follow `$do` prompt and finish task without tests, cleanup, or validation.

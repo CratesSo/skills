@@ -84,7 +84,7 @@ GOAL:
 - ALWAYS stay in read-only mode and never implement changes! ONLY report findings, evidence, and risk notes in a cleanup brief.
 
 RELEVANT FILES:
-- [files and configs tied tolane scope]
+- [files and configs tied to lane scope]
 
 AVOID:
 - [any overlapping files owned by parallel agents]
@@ -106,7 +106,7 @@ You own triage. Never pass raw Wave 1 output straight into edits.
 - Keep write scopes non-overlapping when parallel workers run.
 
 ### Worker Brief
-- Use this exactshape when spawning worker agents for Wave 2:
+- Use this exact shape when spawning worker agents for Wave 2:
 
 ```text
 GOAL:
