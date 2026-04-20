@@ -1,6 +1,6 @@
 ---
 name: bandit
-description: User triggered.
+description: "Run Bandit security scans on Python code, review hits, and report prioritized findings before remediation. Use only when explicitly invoked for Bandit scanning."
 ---
 
 # CANONICAL FLOW

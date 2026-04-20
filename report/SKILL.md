@@ -1,6 +1,6 @@
 ---
 name: report
-description: User triggered.
+description: "Generate complete standalone HTML reports for explicit report requests, including recap and custom report modes. Use only when explicitly invoked as report."
 ---
 
 # HTML RESPONSE

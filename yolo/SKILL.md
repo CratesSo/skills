@@ -1,6 +1,6 @@
 ---
 name: yolo
-description: User triggered.
+description: "Finish an explicit request without tests, cleanup, or validation when the user intentionally invokes yolo mode. Use only when explicitly invoked."
 ---
 
 # yolo

@@ -1,6 +1,6 @@
 ---
 name: vulture
-description: User triggered.
+description: "Find and remove confirmed Python dead code using ruff, vulture, pyright, and targeted tests. Use only when explicitly invoked for dead-code cleanup."
 ---
 
 # CANONICAL FLOW

@@ -1,6 +1,6 @@
 ---
 name: audit-team
-description: User triggered.
+description: "Run an agentic audit workflow that maps scope, dispatches review slices, triages findings, and coordinates fixes. Use only when explicitly invoked for audit-team style review."
 ---
 
 # CANONICAL FLOW

@@ -1,6 +1,6 @@
 ---
 name: plan-my-grill
-description: User triggered.
+description: "Interrogate a plan or design with structured questions until it is handoff-ready and high-impact blockers are resolved. Use only when explicitly invoked for plan grilling."
 ---
 
 # plan-my-grill
@@ -60,7 +60,7 @@ Use a hidden completeness frame and track what still matters like interface, dat
 - Call out weak, inconsistent, or underspecified choices directly.
   - Force real tradeoff decision if weak assumption would materially change implementation.
   - Never press low impact disagreements if risk is understood and choice locked.
-- Add 🔥 emoji instead of "(recommended)" after your most recommended option.
+- Always add a fire 🔥 emoji instead of "(recommended)" directly after the user selectable option you most recommend for each question.
 
 ## QUESTION STYLE
 

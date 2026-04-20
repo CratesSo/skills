@@ -1,6 +1,6 @@
 ---
 name: actions
-description: User triggered.
+description: "Manage workspace actions in .codex/environments/environment.toml. Use only when explicitly invoked to add, audit, update, or remove workspace actions."
 ---
 
 # actions

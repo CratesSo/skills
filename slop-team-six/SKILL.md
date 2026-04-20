@@ -1,6 +1,6 @@
 ---
 name: slop-team-six
-description: User triggered.
+description: "Run an execution-first cleanup sweep that maps cleanup lanes, proves relevance, edits in waves, and validates narrowly. Use only when explicitly invoked for cleanup sweeps."
 ---
 
 # slop-team-six
