@@ -4,33 +4,33 @@ Published Codex skills and supporting metadata.
 
 ## Included Skills
 
-- `actions`: manage workspace actions in `.codex/environments/environment.toml`.
-- `audit-team`: coordinate agentic audit workflows from scope mapping through triage and fixes.
-- `bandit`: run Bandit security scans on Python code and report prioritized findings.
-- `handoff`: generate concise continuation prompts from current thread context and tool results.
-- `plan-my-grill`: interrogate plans and designs until they are handoff-ready.
-- `preflight`: run production-readiness preflight checks across security, database, deployment, and code.
-- `python-radon`: run Radon complexity and maintainability scans on Python code.
-- `report`: generate complete standalone HTML reports from recap or custom requests.
-- `slop-team-six`: run evidence-backed cleanup sweeps using subagents and lane playbooks.
-- `vulture`: find and remove confirmed Python dead code.
-- `yolo`: finish explicit requests without tests, cleanup, or validation gates.
+- **`actions`**: manage workspace actions in `.codex/environments/environment.toml`.
+- **`audit-team`**: coordinate agentic audit workflows from scope mapping through triage and fixes.
+- **`bandit`**: run Bandit security scans on Python code and report prioritized findings.
+- **`handoff`**: generate concise continuation prompts from current thread context and tool results.
+- **`plan-my-grill`**: interrogate plans and designs until they are handoff-ready.
+- **`preflight`**: run production-readiness preflight checks across security, database, deployment, and code.
+- **`python-radon`**: run Radon complexity and maintainability scans on Python code.
+- **`report`**: generate complete standalone HTML reports from recap or custom requests.
+- **`slop-team-six`**: run evidence-backed cleanup sweeps using subagents and lane playbooks.
+- **`vulture`**: find and remove confirmed Python dead code.
+- **`yolo`**: finish explicit requests without tests, cleanup, or validation gates.
 
 ## Versions
 
 | Skill | Directory | Current version | Tag |
 | --- | --- | --- | --- |
-| actions | `actions/` | v1.0.5 | `actions/v1.0.5` |
-| audit-team | `audit-team/` | v1.5.0 | `audit-team/v1.5.0` |
-| bandit | `bandit/` | v1.0.1 | `bandit/v1.0.1` |
-| handoff | `handoff/` | v1.0.2 | `handoff/v1.0.2` |
-| plan-my-grill | `plan-my-grill/` | v1.6.0 | `plan-my-grill/v1.6.0` |
-| preflight | `preflight/` | v1.0.0 | `preflight/v1.0.0` |
-| python-radon | `python-radon/` | v1.0.0 | `python-radon/v1.0.0` |
-| report | `report/` | v1.1.0 | `report/v1.1.0` |
-| slop-team-six | `slop-team-six/` | v2.0.1 | `slop-team-six/v2.0.1` |
-| vulture | `vulture/` | v1.0.0 | `vulture/v1.0.0` |
-| yolo | `yolo/` | v1.0.0 | `yolo/v1.0.0` |
+| **actions** | `actions/` | v1.0.5 | `actions/v1.0.5` |
+| **audit-team** | `audit-team/` | v1.5.0 | `audit-team/v1.5.0` |
+| **bandit** | `bandit/` | v1.0.1 | `bandit/v1.0.1` |
+| **handoff** | `handoff/` | v1.0.2 | `handoff/v1.0.2` |
+| **plan-my-grill** | `plan-my-grill/` | v1.6.0 | `plan-my-grill/v1.6.0` |
+| **preflight** | `preflight/` | v1.0.0 | `preflight/v1.0.0` |
+| **python-radon** | `python-radon/` | v1.0.0 | `python-radon/v1.0.0` |
+| **report** | `report/` | v1.1.0 | `report/v1.1.0` |
+| **slop-team-six** | `slop-team-six/` | v2.0.1 | `slop-team-six/v2.0.1` |
+| **vulture** | `vulture/` | v1.0.0 | `vulture/v1.0.0` |
+| **yolo** | `yolo/` | v1.0.0 | `yolo/v1.0.0` |
 
 ## Install / Pin
 
