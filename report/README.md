@@ -24,6 +24,10 @@
 - `$report recap+`
   - Generates an HTML report from the last assistant reply along with any high value context already present in thread when it clearly improves the doc.
 
+## Version
+
+Current version: v1.1.0
+
 ## Install
 
 `npx skills@latest add CratesSo/skills/report`

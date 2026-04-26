@@ -5,7 +5,7 @@ description: "Generate concise continuation prompts from current thread context 
 
 # WORKFLOW
 
-**Generate a handoff prompt for a new thread in same workspace using only live thread context and any tool results already in scope. Never read sqlite state, session rollouts, hidden history.**
+Generate a handoff prompt for a new thread in same workspace using only live thread context and any tool results already in scope. Never read sqlite state, session rollouts, hidden history.
 
 1. Infer current goals, done states, settled decisions, task-specific constraints, key workspace anchors, and blocking open risks from active thread.
 2. Drop routine chatter, status noise, raw tool output, dead-end branches.

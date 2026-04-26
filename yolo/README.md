@@ -10,6 +10,10 @@
 
 - `$yolo move that button 1px to the left`
 
+## Version
+
+Current version: v1.0.0
+
 ## Install
 
 `npx skills@latest add CratesSo/skills/yolo`

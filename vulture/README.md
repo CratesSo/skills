@@ -6,5 +6,9 @@
 1. Type `$vulture <repo or cleanup target>`.
 2. Follow the ordered Python dead-code pass across `ruff`, `vulture`, `pyright`, and narrow test reruns.
 
+## Version
+
+Current version: v1.0.0
+
 ## Install
 `npx skills@latest add CratesSo/skills/vulture`

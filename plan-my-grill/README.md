@@ -22,6 +22,10 @@ You can answer "stop" at any time to stop early.
 - Simple, but **ambiguous** task implementation.
 - Complex planning or implementation.
 
+## Version
+
+Current version: v1.6.0
+
 ## Install
 
 `npx skills@latest add CratesSo/skills/plan-my-grill`

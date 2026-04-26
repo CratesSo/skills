@@ -25,6 +25,10 @@
 - `$audit-team back-end, performance`
 - `$audit-team frontend, security`
 
+## Version
+
+Current version: v1.5.0
+
 ## Install
 
 `npx skills@latest add CratesSo/skills/audit-team`

@@ -19,6 +19,10 @@
 2. Follow the staged cleanup sweep across preflight, evidence, triage, execution, review, and narrow validation.
 3. If tools are needed to perform audit, you will be prompted to install them before proceeding.
 
+## Version
+
+Current version: v2.0.1
+
 ## Install
 
 `npx skills@latest add CratesSo/skills/slop-team-six`

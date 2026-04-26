@@ -15,6 +15,10 @@
 - `$actions Make an action that rebuilds and relaunches the app.`
 - `$actions remove the "Test" action.`
 
+## Version
+
+Current version: v1.0.5
+
 ## Install
 
 `npx skills@latest add CratesSo/skills/actions`

@@ -10,6 +10,10 @@
 2. Follow the read-only scan and review flow before deciding on any remediation.
 3. Stay safe.
 
+## Version
+
+Current version: v1.0.1
+
 ## Install
 
 `npx skills@latest add CratesSo/skills/bandit`
