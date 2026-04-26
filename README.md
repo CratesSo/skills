@@ -4,62 +4,73 @@
 
 ## Codex Specific
 
-**Plan My Grill**
+#### Plan My Grill
+
 ```md
 !! WARNING: This is a good skill !!
 Interrogate plans and designs until they are handoff-ready.
 ```
 
-**Actions**
+#### Actions
+
 ```md
 Manage workspace actions in `.codex/environments/environment.toml`.
 ```
 
 ## Code Review
 
-**Audit Team**
+#### Audit Team
+
 ```md
 Coordinate agentic audit workflows from scope mapping through triage and fixes.
 ```
 
-**Slop Team Six**
+#### Slop Team Six
+
 ```md
 Run evidence-backed cleanup sweeps using subagents and lane playbooks.
 ```
 
-**Python Radon**
+#### Python Radon
+
 ```md
 Run Radon complexity and maintainability scans on Python code.
 ```
 
-**Preflight**
+#### Preflight
+
 ```md
 Run production-readiness preflight checks across security, database, deployment, and code.
 ```
 
-**Vulture**
+#### Vulture
+
 ```md
 Find and remove confirmed Python dead code.
 ```
 
-**Bandit**
+#### Bandit
+
 ```md
 Run Bandit security scans on Python code and report prioritized findings.
 ```
 
 ## Quality of Life
 
-**Report**
+#### Report
+
 ```md
 Generate complete standalone HTML reports from recap or custom requests.
 ```
 
-**Handoff**
+#### Handoff
+
 ```md
 Generate concise continuation prompts from current thread context and tool results.
 ```
 
-**YOLO**
+#### YOLO
+
 ```md
 Finish explicit requests without tests, cleanup, or validation gates.
 ```
