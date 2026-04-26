@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: "Generate a concise continuation prompt for a new thread from current thread context and in-scope tool results. Use only when explicitly invoked for handoff creation."
+description: "Generate concise continuation prompts from current thread context and tool results."
 ---
 
 # WORKFLOW

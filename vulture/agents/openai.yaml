@@ -1,0 +1,9 @@
+interface:
+  display_name: "Vulture"
+  short_description: "Find confirmed dead Python code"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.png"
+  default_prompt: "Use $vulture."
+
+policy:
+  allow_implicit_invocation: false

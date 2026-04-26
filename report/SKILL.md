@@ -1,12 +1,11 @@
 ---
 name: report
-description: "Generate complete standalone HTML reports for explicit report requests, including recap and custom report modes. Use only when explicitly invoked as report."
+description: "Generate complete standalone HTML reports from recap or custom requests."
 ---
 
 # HTML RESPONSE
 
-- Use only when user explicitly invokes `report`.
-- Output only HTML. No markdown or prose before or after the doc.
+- Output only HTML; No markdown or prose before or after the doc.
 - Always return complete HTML doc with `<!DOCTYPE html>`, `<html>`, `<head>`, and `<body>`.
 - Never output HTML into chat.
 - If user invokes `report` with text after it, treat that trailing text as the request.

@@ -1,0 +1,9 @@
+interface:
+  display_name: "Slop Team Six"
+  short_description: "Run portable cleanup sweeps"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.png"
+  default_prompt: "Use $slop-team-six."
+
+policy:
+  allow_implicit_invocation: false

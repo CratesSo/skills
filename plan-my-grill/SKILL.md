@@ -1,11 +1,10 @@
 ---
 name: plan-my-grill
-description: "Interrogate a plan or design with structured questions until it is handoff-ready and high-impact blockers are resolved. Use only when explicitly invoked for plan grilling."
+description: "Interrogate plans and designs with structured questions until they are handoff-ready."
 ---
-
 # plan-my-grill
 
-**Interrogate a plan or design until handoff ready and no high impact blockers remain.**
+Interrogate a plan or design until handoff ready and no high impact blockers remain:
 
 ## BEFORE STARTING
 

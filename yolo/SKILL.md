@@ -1,6 +1,6 @@
 ---
 name: yolo
-description: "Finish an explicit request without tests, cleanup, or validation when the user intentionally invokes yolo mode. Use only when explicitly invoked."
+description: "Finish explicit requests without tests, cleanup, or validation gates."
 ---
 
 # yolo

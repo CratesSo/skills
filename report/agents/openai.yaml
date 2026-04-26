@@ -1,0 +1,9 @@
+interface:
+  display_name: "Report"
+  short_description: "Render standalone HTML reports"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.png"
+  default_prompt: "Use $report."
+
+policy:
+  allow_implicit_invocation: false

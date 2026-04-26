@@ -1,0 +1,9 @@
+interface:
+  display_name: "Bandit"
+  short_description: "Run focused Python security scans"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.png"
+  default_prompt: "Use $bandit."
+
+policy:
+  allow_implicit_invocation: false

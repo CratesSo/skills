@@ -1,6 +1,6 @@
 ---
 name: audit-team
-description: "Run an agentic audit workflow that maps scope, dispatches review slices, triages findings, and coordinates fixes. Use only when explicitly invoked for audit-team style review."
+description: "Coordinate agentic audit workflows from scope mapping through triage and fixes."
 ---
 
 # CANONICAL FLOW
@@ -27,14 +27,13 @@ description: "Run an agentic audit workflow that maps scope, dispatches review s
 
 ## NAVIGATOR PROMPT
 
-- Spawn `navigator` with `fork_context=false`.
-- When spawning `navigator` use the shape inside the `<navigator_prompt>` tags as the spawn prompt.
+- Spawn `navigator` with `fork_context=false` and use the shape inside the `<navigator_prompt>` tags as the spawn prompt.
 
 <navigator_prompt>
 
 ## AUDIT LENS
 
-[concise description of audit lens]
+[concise actionable description of audit lens]
 
 ## NAVIGATOR INSTRUCTIONS
 
@@ -59,7 +58,7 @@ You are a Navigator agent:
 ## NAVIGATOR -> REVIEWER PROMPT
 
 - Spawn each `reviewer` or `reviewer_mini` with `fork_context=false`.
-- Use only the shape of the next fenced block below for the reviewer spawn prompt.
+- Use the shape INSIDE the next fenced block below for the reviewer spawn prompt.
 
 ```text
 GOAL:
@@ -85,7 +84,7 @@ AVOID:
 ## NAVIGATOR -> WORKER PROMPT
 
 - If one or more implementation slices are accepted after triage, and only after the full reviewer wave has finished, you must spawn the required `worker` or `worker_mini` agents using `fork_context=false`.
-- Use only the shape of the next fenced block below for the worker spawn prompt:
+- Use the shape INSIDE the next fenced block below for the worker spawn prompt:
 
 ```text
 GOAL:
@@ -105,7 +104,7 @@ AVOID:
 - Return the following report body, but only after either:
   - zero accepted findings remained after triage, or
   - all required workers finished and their results were consolidated.
-- Use only the shape of the next fenced block below for the report body.
+- Use the shape INSIDE the next fenced block below for the report body.
 
 ```text
 ACCEPTED REVIEWER FINDINGS:
@@ -117,22 +116,18 @@ WORKER RESULTS:
 
 ## FINAL PARENT RESPONSE
 
-Parent returns the following response body inside fenced block below after validation:
+Parent returns the following response body using shape INSIDE the fenced block below after validation:
 
 ```md
 ## ACCEPTED FINDINGS
-
 - **title**: [concise description]
 
 ## FIXES IMPLEMENTED
-
 - **title**: [concise description]
 
 ## VALIDATION
-
 - [concise bullets of tests done]
 
 ## RESIDUAL ISSUES
-
 - [concise bullets]
 ```

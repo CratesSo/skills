@@ -1,16 +1,19 @@
 ---
 name: actions
-description: "Manage workspace actions in .codex/environments/environment.toml. Use only when explicitly invoked to add, audit, update, or remove workspace actions."
+description: "Manage workspace actions in .codex/environments/environment.toml."
 ---
 
 # actions
 
-## When To Use
+## Workflow
 
-- Adding a new workspace action.
-- Showing or auditing current workspace actions.
-- Updating an existing action name/icon/command.
-- Removing workspace action.
+1. Resolve target workspace.
+2. Read `.codex/environments/environment.toml`.
+3. Parse existing `[[actions]]` blocks.
+4. Infer user requested operation: create/add, inspect/list/show, update/edit/change, remove/delete
+5. Extract or confirm: action `name`, `icon`, `command`
+6. Run static/light verification before mutating.
+7. Report final action name, icon, target file, and command used.
 
 ## Source Of Truth
 
@@ -31,8 +34,6 @@ script = ""
 Then add requested `[[actions]]` block.
 
 ## Allowed Icons
-
-Only use:
 
 - `run`
 - `test`
@@ -65,16 +66,6 @@ npm run test
 ```
 
 Preserve all existing non-action content. Only add/edit/move/remove the `[[actions]]` blocks required for request.
-
-## Workflow
-
-1. Resolve target workspace.
-2. Read `.codex/environments/environment.toml`.
-3. Parse existing `[[actions]]` blocks.
-4. Infer user requested operation: create/add, inspect/list/show, update/edit/change, remove/delete
-5. Extract or confirm: action `name`, `icon`, `command`
-6. Run static/light verification before mutating.
-7. Report final action name, icon, target file, and command used.
 
 ## Natural-Language
 
