@@ -73,6 +73,14 @@ npx skills@latest add CratesSo/skills/bandit
 
 ## Quality of Life
 
+#### Lessons
+
+Move durable repo lessons into local AGENTS.md guidance.
+
+```sh
+npx skills@latest add CratesSo/skills/lessons
+```
+
 #### Report
 
 Generate complete standalone HTML reports from recap or custom requests.
@@ -105,6 +113,7 @@ npx skills@latest add CratesSo/skills/yolo
 | **audit-team** | `audit-team/` | v1.5.0 | `audit-team/v1.5.0` |
 | **bandit** | `bandit/` | v1.0.1 | `bandit/v1.0.1` |
 | **handoff** | `handoff/` | v1.0.2 | `handoff/v1.0.2` |
+| **lessons** | `lessons/` | v1.0.0 | `lessons/v1.0.0` |
 | **plan-my-grill** | `plan-my-grill/` | v1.6.0 | `plan-my-grill/v1.6.0` |
 | **preflight** | `preflight/` | v1.0.0 | `preflight/v1.0.0` |
 | **python-radon** | `python-radon/` | v1.0.0 | `python-radon/v1.0.0` |
