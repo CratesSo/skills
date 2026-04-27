@@ -6,73 +6,95 @@
 
 #### Plan My Grill
 
-```md
 !! WARNING: This is a good skill !!
 Interrogate plans and designs until they are handoff-ready.
+
+```sh
+npx skills@latest add CratesSo/skills/plan-my-grill
 ```
 
 #### Actions
 
-```md
 Manage workspace actions in `.codex/environments/environment.toml`.
+
+```sh
+npx skills@latest add CratesSo/skills/actions
 ```
 
 ## Code Review
 
 #### Audit Team
 
-```md
 Coordinate agentic audit workflows from scope mapping through triage and fixes.
+
+```sh
+npx skills@latest add CratesSo/skills/audit-team
 ```
 
 #### Slop Team Six
 
-```md
 Run evidence-backed cleanup sweeps using subagents and lane playbooks.
+
+```sh
+npx skills@latest add CratesSo/skills/slop-team-six
 ```
 
 #### Python Radon
 
-```md
 Run Radon complexity and maintainability scans on Python code.
+
+```sh
+npx skills@latest add CratesSo/skills/python-radon
 ```
 
 #### Preflight
 
-```md
 Run production-readiness preflight checks across security, database, deployment, and code.
+
+```sh
+npx skills@latest add CratesSo/skills/preflight
 ```
 
 #### Vulture
 
-```md
 Find and remove confirmed Python dead code.
+
+```sh
+npx skills@latest add CratesSo/skills/vulture
 ```
 
 #### Bandit
 
-```md
 Run Bandit security scans on Python code and report prioritized findings.
+
+```sh
+npx skills@latest add CratesSo/skills/bandit
 ```
 
 ## Quality of Life
 
 #### Report
 
-```md
 Generate complete standalone HTML reports from recap or custom requests.
+
+```sh
+npx skills@latest add CratesSo/skills/report
 ```
 
 #### Handoff
 
-```md
 Generate concise continuation prompts from current thread context and tool results.
+
+```sh
+npx skills@latest add CratesSo/skills/handoff
 ```
 
 #### YOLO
 
-```md
 Finish explicit requests without tests, cleanup, or validation gates.
+
+```sh
+npx skills@latest add CratesSo/skills/yolo
 ```
 
 ## Versions
