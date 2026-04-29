@@ -81,6 +81,14 @@ Audit repo AGENTS.md files for safe cleanup opportunities.
 npx skills@latest add CratesSo/skills/agents-doctor
 ```
 
+#### Agents Splitter
+
+Split large AGENTS.md guidance into on-demand reference files.
+
+```sh
+npx skills@latest add CratesSo/skills/agents-splitter
+```
+
 #### Lessons Doctor
 
 Move durable repo lessons into local AGENTS.md guidance.
@@ -119,6 +127,7 @@ npx skills@latest add CratesSo/skills/yolo
 | --- | --- | --- | --- |
 | **actions** | `actions/` | v1.0.5 | `actions/v1.0.5` |
 | **agents-doctor** | `agents-doctor/` | v1.0.2 | `agents-doctor/v1.0.2` |
+| **agents-splitter** | `agents-splitter/` | v1.0.1 | `agents-splitter/v1.0.1` |
 | **audit-team** | `audit-team/` | v1.5.0 | `audit-team/v1.5.0` |
 | **bandit** | `bandit/` | v1.0.1 | `bandit/v1.0.1` |
 | **handoff** | `handoff/` | v1.0.2 | `handoff/v1.0.2` |
