@@ -1,5 +1,5 @@
 interface:
-  display_name: "Lessons"
+  display_name: "Agents Doctor"
   short_description: "Skill helper"
   icon_small: "./assets/icon.png"
   icon_large: "./assets/icon.png"

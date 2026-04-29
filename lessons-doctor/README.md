@@ -1,4 +1,4 @@
-# lessons
+# lessons-doctor
 - Process a repo `lessons.md` into its local `AGENTS.md`.
 - Move durable repo-wide lessons, renumber the remaining lessons, and report every decision.
 
@@ -7,12 +7,12 @@
 2. Let it discover one `lessons.md`, classify lessons, move durable rules, and validate numbering.
 
 ### Examples
-- `$lessons`
-- `Use the lessons skill to process this repo's lessons.md`
+- `$lessons-doctor`
+- `Use the lessons-doctor skill to process this repo's lessons.md`
 
 ## Version
 
-Current version: v1.0.1
+Current version: v1.0.2
 
 ## Install
-`npx skills@latest add CratesSo/skills/lessons`
+`npx skills@latest add CratesSo/skills/lessons-doctor`
