@@ -12,7 +12,7 @@
 
 ## Version
 
-Current version: v1.0.1
+Current version: v1.0.2
 
 ## Install
 `npx skills@latest add CratesSo/skills/agents-splitter`
