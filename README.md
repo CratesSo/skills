@@ -134,18 +134,18 @@ npx skills@latest add CratesSo/skills/yolo
 | Skill | Directory | Current version | Tag |
 | --- | --- | --- | --- |
 | **actions** | `actions/` | v1.0.6 | `actions/v1.0.6` |
-| **agents-doctor** | `agents-doctor/` | v1.0.4 | `agents-doctor/v1.0.4` |
+| **agents-doctor** | `agents-doctor/` | v1.0.5 | `agents-doctor/v1.0.5` |
 | **agents-splitter** | `agents-splitter/` | v1.0.3 | `agents-splitter/v1.0.3` |
 | **audit-team** | `audit-team/` | v1.5.2 | `audit-team/v1.5.2` |
 | **bandit** | `bandit/` | v1.0.1 | `bandit/v1.0.1` |
 | **handoff** | `handoff/` | v1.0.2 | `handoff/v1.0.2` |
 | **lessons-doctor** | `lessons-doctor/` | v1.0.4 | `lessons-doctor/v1.0.4` |
-| **plan-my-grill** | `plan-my-grill/` | v1.6.1 | `plan-my-grill/v1.6.1` |
+| **plan-my-grill** | `plan-my-grill/` | v1.6.2 | `plan-my-grill/v1.6.2` |
 | **preflight** | `preflight/` | v1.0.2 | `preflight/v1.0.2` |
 | **python-radon** | `python-radon/` | v1.0.0 | `python-radon/v1.0.0` |
 | **report** | `report/` | v1.1.0 | `report/v1.1.0` |
 | **slop-team-six** | `slop-team-six/` | v2.0.3 | `slop-team-six/v2.0.3` |
-| **todo** | `todo/` | v0.1.0 | `todo/v0.1.0` |
+| **todo** | `todo/` | v0.1.1 | `todo/v0.1.1` |
 | **vulture** | `vulture/` | v1.0.0 | `vulture/v1.0.0` |
 | **yolo** | `yolo/` | v1.0.0 | `yolo/v1.0.0` |
 

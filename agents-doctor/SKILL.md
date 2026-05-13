@@ -1,122 +1,141 @@
 ---
 name: agents-doctor
-description: "Audit local repo AGENTS.md for safe cleanup opportunities, then optionally apply previously reported safe changes."
+description: "Maintain AGENTS.md through lessons, cleanup, and optional splitting."
 ---
 
 # agents-doctor
 
-Audit current repo local `AGENTS.md` for duplicate, redundant, repetitive, verbose, stale, or low-value guidance. Always report first. Never edit on initial invocation.
+Maintain `AGENTS.md` through lessons, cleanup, and optional splitting.
 
-## TARGET DISCOVERY
+Run phases in this exact order:
 
-- Work only in current repo.
-- Find repo-root `AGENTS.md`.
-- If no local `AGENTS.md`: Stop, report that there's no local `AGENTS.md`, offer a creation plan based on repo facts only if useful, and don't create file unless user confirms.
+1. Process durable lessons.
+2. Clean up `AGENTS.md`.
+3. Split large situational guidance.
 
-## CANONICAL WORKFLOW
+## Target Discovery
 
-### 1. Audit and Report
+- Determine the repo root with `git rev-parse --show-toplevel` when available.
+- If not inside a git repo, use the current working directory as the target root and report that assumption.
+- Find `AGENTS.md` at the target root.
+- If the user explicitly asks for global AGENTS, use `/Users/admin/.codex/AGENTS.md` and skip repo `lessons.md` unless the user gives another lesson file.
+- If the target `AGENTS.md` is missing, stop, report the missing path, and do not create it unless the user confirms.
+- If repo `lessons.md` is absent, report that the lessons phase was skipped and continue to cleanup.
 
-- 1a. Fully read local `AGENTS.md` and produce an audit report.
-- 1b. Ask if user wants to apply the safe changes. If yes, proceed to step 2. If no, stop.
+## Default UX
 
-### 2. Apply Safe Changes
+- Default invocation is audit-first. Do not edit files unless the user explicitly asks to apply changes.
+- Run phases sequentially and report proposed changes before applying any phase.
+- If the user asks to apply changes, apply only the confirmed items from the latest report.
+- If an apply request is ambiguous, apply only clearly named phases or items; otherwise ask before editing.
+- Never delete lessons without explicit user confirmation.
+- Keep edits narrow and local to `AGENTS.md`, `lessons.md`, and generated `AGENTS_<topic>.md` reference files.
 
-- 2a. Apply only the safe changes listed in the previous report under `MERGE`, `COMPRESS`, and `DELETE`.
-- 2b. Use best judgment for meaning-preserving compression.
-- 2c. Never apply anything listed under `NEEDS CONFIRMATION` unless user confirmed that item.
-- 2d. If the current file drifted enough that a listed safe change no longer matches cleanly, skip that item and report it.
+## Phase 1: Lessons
 
-## AUDIT PRIORITY
+Classify every lesson in repo `lessons.md` before editing:
 
-Classify cleanup opportunities in this order:
+- `move`: repo-wide repeatable guidance likely to help future agents across multiple tasks.
+- `keep`: useful but incident-specific, subsystem-narrow, historical, or not broad enough for `AGENTS.md`.
+- `delete candidate`: obsolete, duplicated, vague, or low-value. Report only unless the user confirms deletion.
 
-1. REDUNDANCY:
-   - Exact duplicates of other rules or sections
-   - Rules covered by stronger local or global instructions
-   - Overlap between sections that can be merged
-   - Repeated concepts that can be expressed once
-2. BREVITY:
-   - Unnecessarily verbose bullets that can be compressed without losing meaning
-   - Repeated qualifiers or conditions that can be stated once
-   - Long section wording that can be compressed without changing meaning
-   - Repetitive examples that can be reduced to one or two representative cases
-   - Repeated formatting or structure that can be simplified (e.g. multiple nested lists that can be flattened)
-   - Repetitive references to the same tools, files, or paths that can be consolidated
-3. FRESHNESS:
-   - Stale paths or file references that no longer exist or are no longer relevant
-   - Obsolete tools or versions that are no longer used or supported
-   - Outdated workflow steps that have changed due to recent repo updates
-   - Rules contradicted by current repo facts or recent changes
-4. LOW VALUE:
-   - Guidance too generic to be actionable, too specific to be broadly useful, or only relevant to a past state of the repo and unlikely to be relevant again
-   - Rules that are only relevant to a specific edge case that is unlikely to occur again
-   - Guidance that is already well-covered by global behavior and doesn't materially add to it
+Report lesson edits:
 
-## PRESERVE BY DEFAULT
+1. Propose `move` lessons for a `## LESSONS` section in `AGENTS.md`, creating the section at the end only if the user confirms.
+2. If a lesson is already clearly covered in `AGENTS.md`, report it as an absorb candidate.
+3. Propose tighter wording only when it clearly improves reuse.
+4. Report the resulting `lessons.md` renumbering that would happen after confirmed moves.
 
-- Repo-specific invariants and constraints
-- Hard-won behavior rules
-- Signing, install, sandbox, validation, and workflow workarounds that required product or architectural judgment to create
-- File and path anchors that materially help future agents navigate the repo
-- Rules whose deletion would require product or architectural judgment to replace or re-anchor
-- Rules that are still relevant and not stale, even if they could be compressed or merged
+When the user confirms lesson edits, apply only confirmed moves or absorptions, renumber remaining `lessons.md` lessons consecutively from `1.`, and validate moved guidance appears exactly once.
 
-## CLASSIFICATION
+## Phase 2: Cleanup
 
-- `merge`: content should move into another existing section or combine with a nearby rule
-- `compress`: content is useful but wordier than needed
-- `remove`: content safe to remove because it's an exact duplicate, clearly covered duplicate, or generic rule already covered by global behavior
-- `needs confirmation`: content may be low-value, stale, or compressible, but removing or changing it could alter meaning, priority, or repo-specific intent
-- `keep`: content remains valuable enough to preserve
+Audit `AGENTS.md` after the lessons phase. In audit-only mode, use the current file plus proposed lesson changes as context; after confirmed lesson edits, use the updated file.
 
-If unsure, use `needs confirmation` over `remove`.
+1. Redundancy: exact duplicates, overlap, repeated concepts, or rules covered by stronger local guidance.
+2. Brevity: wording that can be compressed without losing meaning.
+3. Freshness: stale paths, obsolete tools, outdated workflow steps, or repo facts contradicted by current files.
+4. Low value: generic, past-state, or edge-case guidance that no longer earns always-loaded space.
 
-## REPORTING CONTRACT
+Classify findings:
 
-On the audit turn, report decisions using a visible Markdown body using the template INSIDE the fenced block below:
+- `merge`: combine overlapping content into one canonical place.
+- `compress`: shorten useful content without changing meaning.
+- `remove`: delete exact duplicates, clearly covered duplicates, or generic guidance already covered by the same target `AGENTS.md` or stronger active instructions.
+- `needs confirmation`: changing it could alter meaning, priority, or repo-specific intent.
+- `keep`: preserve because it remains useful or deletion would require judgment.
+
+Report `merge`, `compress`, and `remove` findings as safe candidates. Do not apply anything during the default audit.
+
+When the user confirms cleanup edits, apply only the confirmed findings.
+
+Preserve by default:
+
+- Repo-specific invariants and constraints.
+- Hard-won behavior rules.
+- Tool, signing, install, sandbox, validation, and workflow workarounds.
+- File and path anchors that help future agents navigate the repo.
+- Safety, permission, and destructive-command constraints.
+
+## Phase 3: Splitting
+
+Audit the final intended `AGENTS.md` for large situational guidance that can move to adjacent reference files without changing meaning. In audit-only mode, use the current file plus proposed lesson and cleanup changes as context; after confirmed edits, use the updated file.
+
+Good split candidates include repo-type guidance, work-mode runbooks, tool-specific procedures, rare workflows, and long examples that are not needed for most tasks.
+
+Do not split core rules, safety constraints, target discovery rules, short guidance where the pointer costs as much context as the original, or content whose meaning depends on nearby priority/order.
+
+Score each split candidate from `1` to `5` to prioritize the report:
+
+- `context savings`: expected reduction in always-loaded context.
+- `lookup clarity`: how obvious it is when to open the reference.
+- `preservation risk`: risk that moving changes meaning, priority, or usage.
+
+Do not create reference files during the default audit. Report split candidates and require explicit confirmation before applying them.
+
+For each confirmed split:
+
+1. Create `AGENTS_<topic>.md` beside the target `AGENTS.md`, using a lowercase underscore slug from the original section title.
+2. Move the section nearly verbatim into the reference file.
+3. Replace the original section with a concise pointer that includes the absolute reference path and a specific trigger condition.
+4. Ensure the moved guidance exists in one canonical location only.
+
+Report all non-confirmed candidates as `needs confirmation` or `skipped`.
+
+## Apply Validation
+
+After applying any confirmed edits:
+
+1. Re-read every touched file.
+2. Confirm no unconfirmed item was changed.
+3. Confirm moved lesson or split guidance exists in one canonical place.
+4. Confirm every generated pointer uses the correct absolute path and resolves to an existing file.
+5. Confirm reported line and bullet counts match the final files.
+
+## Final Report
+
+Return a compact phase ledger:
 
 ```md
-## MERGE
-- **`<section/item>`** -> **`<target section>`**: `<concise reason>`
+### A ← Lessons
+  1. **Proposed**: `<items or None>`
+  2. **Applied**: `<items or None>`
+  3. **Kept**: `<items or None>`
+  4. **Confirm To Delete**: `<items or None>`
 
-## COMPRESS
-- **`<section/item>`**: `<old issue>` -> `<proposed shorter wording>`
+### B ← Cleanup
+  1. **Proposed**: `<items or None>`
+  2. **Applied**: `<items or None>`
+  3. **Needs Confirmation**: `<items or None>`
 
-## REMOVE
-- **`<section/item>`**: `<concise reason>` (e.g. exact duplicate of `<other section/item>`, covered by global behavior, or clearly redundant with `<other section/item>`)
+### C ← Splits
+  1. **Proposed**: `<items or None>`
+  2. **Applied**: `<AGENTS_<topic>.md files or None>`
+  3. **Skipped / Needs Confirmation**: `<items or None>`
 
-## NEEDS CONFIRMATION
-- **`<section/item>`**: `<concise reason>`
-
-## KEEP
-- **`<section/item>`**: `<concise reason>`
-
-## CURRENT COUNT
-- **`<line count>`** lines, **`<bullet count>`** bullets
+### D ← Counts
+  1. **AGENTS.md**: `<before>` lines / `<before>` bullets -> `<after>` lines / `<after>` bullets
+  2. **lessons.md**: `<before>` lines / `<before>` bullets -> `<after>` lines / `<after>` bullets, `skipped`, or `skipped (global AGENTS target)`
 ```
 
-If a section is empty, write `None`.
-
-## AFTER APPLYING CHANGES
-
-1. Fully re-read `AGENTS.md`.
-2. Confirm intended sections still exist.
-3. Confirm applied safe duplicates and redundancies are gone.
-4. Confirm no unconfirmed `NEEDS CONFIRMATION` item was removed.
-5. Return final output using a visible Markdown body using the template INSIDE the fenced block below (skipping any section without changes):
-
-```md
-## Merged
-- **`<section/item>`** -> **`<target section>`**: `<concise reason>`
-
-## Compressed
-- **`<section/item>`**: `<old issue>` -> `<proposed shorter wording>`
-
-## Removed
-- **`<section/item>`**: `<concise reason>` (e.g. exact duplicate of `<other section/item>`, redundant with `<other section/item>`, etc.)
-
-## Line Count
-- **Before**: `<line count>` lines, `<bullet count>` bullets
-- **After**: `<line count>` lines, `<bullet count>` bullets
-```
+If a phase made no changes, say so plainly. Include validation failures or skipped items in the relevant section.

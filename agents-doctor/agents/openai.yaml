@@ -1,9 +1,8 @@
 interface:
   display_name: "Agents Doctor"
-  short_description: "Skill helper"
+  short_description: "Improve AGENTS.md by processing lessons, cleanup, and splits."
   icon_small: "./assets/icon.png"
   icon_large: "./assets/icon.png"
-  default_prompt: "Use this skill."
 
 policy:
   allow_implicit_invocation: false
