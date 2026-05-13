@@ -113,6 +113,14 @@ Generate concise continuation prompts from current thread context and tool resul
 npx skills@latest add CratesSo/skills/handoff
 ```
 
+#### Todo
+
+Manage a repo-root `todo.md` with durable four-character item references.
+
+```sh
+npx skills@latest add CratesSo/skills/todo
+```
+
 #### YOLO
 
 Finish explicit requests without tests, cleanup, or validation gates.
@@ -137,6 +145,7 @@ npx skills@latest add CratesSo/skills/yolo
 | **python-radon** | `python-radon/` | v1.0.0 | `python-radon/v1.0.0` |
 | **report** | `report/` | v1.1.0 | `report/v1.1.0` |
 | **slop-team-six** | `slop-team-six/` | v2.0.3 | `slop-team-six/v2.0.3` |
+| **todo** | `todo/` | v0.1.0 | `todo/v0.1.0` |
 | **vulture** | `vulture/` | v1.0.0 | `vulture/v1.0.0` |
 | **yolo** | `yolo/` | v1.0.0 | `yolo/v1.0.0` |
 

@@ -1,0 +1,9 @@
+interface:
+  display_name: "Todo"
+  short_description: "Manage repo todos"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.png"
+  default_prompt: "Use $todo."
+
+policy:
+  allow_implicit_invocation: true
