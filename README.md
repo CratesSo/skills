@@ -49,7 +49,7 @@ npx skills@latest add CratesSo/skills/python-radon
 
 #### Preflight
 
-Run production-readiness preflight checks across security, database, deployment, and code.
+Run production-readiness preflight checks across security, database, deployment, code, and Bandit scanning for Python.
 
 ```sh
 npx skills@latest add CratesSo/skills/preflight
@@ -61,14 +61,6 @@ Find and remove confirmed Python dead code.
 
 ```sh
 npx skills@latest add CratesSo/skills/vulture
-```
-
-#### Bandit
-
-Run Bandit security scans on Python code and report prioritized findings.
-
-```sh
-npx skills@latest add CratesSo/skills/bandit
 ```
 
 ## Quality of Life
@@ -137,8 +129,7 @@ npx skills@latest add CratesSo/skills/yolo
 | **agents-doctor** | `agents-doctor/` | v1.0.5 | `agents-doctor/v1.0.5` |
 | **agents-splitter** | `agents-splitter/` | v1.0.3 | `agents-splitter/v1.0.3` |
 | **audit-team** | `audit-team/` | v1.5.2 | `audit-team/v1.5.2` |
-| **bandit** | `bandit/` | v1.0.1 | `bandit/v1.0.1` |
-| **handoff** | `handoff/` | v1.0.2 | `handoff/v1.0.2` |
+| **handoff** | `handoff/` | v1.0.3 | `handoff/v1.0.3` |
 | **lessons-doctor** | `lessons-doctor/` | v1.0.4 | `lessons-doctor/v1.0.4` |
 | **plan-my-grill** | `plan-my-grill/` | v1.6.2 | `plan-my-grill/v1.6.2` |
 | **preflight** | `preflight/` | v1.0.2 | `preflight/v1.0.2` |

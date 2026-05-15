@@ -1,6 +1,6 @@
 # preflight
 - Run a production-readiness audit before launch.
-- Checks security, database, deployment, and code evidence without marking unknowns as passes.
+- Checks security, database, deployment, code, and Bandit scanning evidence without marking unknowns as passes.
 
 ## How to use
 1. Type `$preflight <repo or launch target>`.

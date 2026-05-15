@@ -1,16 +1,17 @@
 # handoff
 
-**Summarizes the active thread context into a fresh-thread continuation prompt that is output into a fenced code block.**
+**Summarizes the active thread context into a repo-root `HANDOFF.md` file for fresh-thread continuation.**
 
 ## How to use
 
 1. Type `$handoff`.
-2. Copy and paste the handoff block into a fresh thread.
-3. Resume working in fresh thread.
+2. Start a fresh thread in the same repo.
+3. Type `$handoff run`.
+4. The new thread reads `HANDOFF.md`, deletes it, and replies `Ready`.
 
 ## Version
 
-Current version: v1.0.2
+Current version: v1.0.3
 
 ## Install
 

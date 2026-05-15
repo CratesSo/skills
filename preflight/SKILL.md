@@ -1,11 +1,10 @@
 ---
 name: preflight
-description: "Run production-readiness preflight checks across security, database, deployment, and code."
+description: "Run production-readiness preflight checks across security, database, deployment, code, and Bandit scanning for Python."
 ---
-Run a launch preflight audit. Verify production readiness across security, database, deployment, and code. Use repo evidence first, then ask only for facts that cannot be discovered locally.
+Run a launch preflight audit. Verify production readiness across security, database, deployment, code, and Bandit scanning for Python. Use repo evidence first, then ask only for facts that cannot be discovered locally.
 
 # WORKFLOW
-
 1. Inspect repo before asking questions:
    - Identify frontend, backend, API routes, auth/session code, database access, deployment config, environment docs, and package manager.
    - Prefer targeted reads/searches over broad scans.
@@ -29,9 +28,9 @@ Run a launch preflight audit. Verify production readiness across security, datab
 ## CHECKLIST
 
 ### SECURITY
-
 - [ ] No API keys or secrets in frontend code
 - [ ] Every route checks authentication (audit all endpoints, not just obvious ones)
+- [ ] Bandit scan run for Python code and findings triaged by severity
 - [ ] HTTPS enforced everywhere, HTTP redirected
 - [ ] CORS locked to your domain, not wildcard
 - [ ] Input validated and sanitized server-side
@@ -41,7 +40,6 @@ Run a launch preflight audit. Verify production readiness across security, datab
 - [ ] Sessions invalidated on logout (server-side)
 
 ### DATABASE
-
 - [ ] Backups configured and tested (test restore, not just backup)
 - [ ] Parameterized queries everywhere, no string concatenation
 - [ ] Separate dev and production databases
@@ -50,7 +48,6 @@ Run a launch preflight audit. Verify production readiness across security, datab
 - [ ] App uses a non-root DB user
 
 ### DEPLOYMENT
-
 - [ ] All environment variables set on production server
 - [ ] SSL certificate installed and valid
 - [ ] Firewall configured (only 80/443 public)
@@ -59,7 +56,6 @@ Run a launch preflight audit. Verify production readiness across security, datab
 - [ ] Staging test passed before production deploy
 
 ### CODE
-
 - [ ] No console.logs in production build
 - [ ] Error handling on all async operations
 - [ ] Loading and error states in UI
@@ -67,13 +63,14 @@ Run a launch preflight audit. Verify production readiness across security, datab
 - [ ] npm audit run, critical issues resolved
 
 ## PARALLEL AUDIT BATCHES
+When using subagents, split work by evidence surface, not by checklist heading. Keep each subagent on one non-overlapping surface and synthesize results yourself after all subagents finish.
 
-When using subagents, split work by evidence surface, not by checklist heading. Keep each subagent on one non-overlapping surface and synthesize results yourself after all subagents are finished.
+### Python Security Scanner
+- For Python code, run Bandit read-only against requested scope or repo-wide if no narrower scope given. Use recursive scanning, exclude obvious non-source paths such as `.venv`, `venv`, `__pycache__`, `.git`, `.tox`, `build`, `dist`, and cache directories, and prefer medium+ severity and medium+ confidence defaults.
+- Review hits before acting. Separate real security issues from framework noise, test-only code, fixtures, and intentional patterns. Keep findings ordered by severity, confidence, and likely impact. Never make code changes just because Bandit emitted a hit.
 
 ### Auth/Session Reviewer
-
 Use `reviewer_heavy`:
-
 - Every route checks authentication
 - Passwords hashed with bcrypt or argon2
 - Auth tokens have expiry
@@ -81,9 +78,7 @@ Use `reviewer_heavy`:
 - Rate limiting on auth endpoints
 
 ### API/data reviewer
-
 Use `reviewer_heavy`:
-
 - Input validated and sanitized server-side
 - Parameterized queries everywhere
 - Pagination on all list endpoints
@@ -91,17 +86,13 @@ Use `reviewer_heavy`:
 - Rate limiting on sensitive non-auth endpoints
 
 ### Frontend Explorer
-
-Use `explorer_standard`:
-
+Use `explorer_deep`:
 - No API keys or secrets in frontend code
 - No console.logs in production build
 - Loading and error states in UI
 
 ### Database explorer
-
-Use `explorer_standard`. Mark production-only facts `UNKNOWN` unless there is repo, provider, or user evidence:
-
+Use `explorer_deep`. Mark production-only facts `UNKNOWN` unless there is repo, provider, or user evidence:
 - Backups configured and tested
 - Separate dev and production databases
 - Connection pooling configured
@@ -109,9 +100,7 @@ Use `explorer_standard`. Mark production-only facts `UNKNOWN` unless there is re
 - App uses a non-root DB user
 
 ### Deployment explorer
-
-Use `explorer_standard`. Mark runtime infrastructure facts `UNKNOWN` unless verified from provider state, config, docs, or user confirmation:
-
+Use `explorer_deep`. Mark runtime infrastructure facts `UNKNOWN` unless verified from provider state, config, docs, or user confirmation:
 - HTTPS enforced everywhere, HTTP redirected
 - CORS locked to your domain
 - All environment variables set on production server
@@ -122,32 +111,22 @@ Use `explorer_standard`. Mark runtime infrastructure facts `UNKNOWN` unless veri
 - Staging test passed before production deploy
 
 ## SYNTHESIS RULES
-
-- You own final matrix.
-- Deduplicate overlapping findings.
-- Treat missing production evidence as `UNKNOWN`, not `PASS`.
-- Prefer smallest concrete next action for each `FAIL` or launch-blocking `UNKNOWN`.
+You own final matrix: Deduplicate overlapping findings, treat missing production evidence as `UNKNOWN`, not `PASS`, prefer smallest concrete next action for each `FAIL` or launch-blocking `UNKNOWN`.
 
 ## OUTPUT CONTRACT
-
 - If no blockers, say so clearly.
 - If a section has no items, omit it.
-- Use the visible Markdown body below as final output shape:
 
-```md
+Use template below for final report:
+
 ## BLOCKERS
 - **`<check>`**: `<FAIL or UNKNOWN>` - `<evidence or missing evidence>` - `<next action>`
-
 ## WARNINGS
 - **`<check>`**: `<risk>` - `<evidence>` - `<next action>`
-
 ## PASSED
 - **`<check>`**: `<evidence>`
-
 ## UNKNOWN / NEEDS CONFIRMATION
 - **`<check>`**: `<what must be confirmed>`
-
 ## NEXT ACTIONS
 1. `<smallest concrete action>`
 2. `<next concrete action>`
-```
