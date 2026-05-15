@@ -23,6 +23,14 @@ npx skills@latest add CratesSo/skills/actions
 
 ## Code Review
 
+#### Fix
+
+Investigate technical failures before applying narrow, verified fixes.
+
+```sh
+npx skills@latest add CratesSo/skills/fix
+```
+
 #### Audit Team
 
 Coordinate agentic audit workflows from scope mapping through triage and fixes.
@@ -129,6 +137,7 @@ npx skills@latest add CratesSo/skills/yolo
 | **agents-doctor** | `agents-doctor/` | v1.0.5 | `agents-doctor/v1.0.5` |
 | **agents-splitter** | `agents-splitter/` | v1.0.3 | `agents-splitter/v1.0.3` |
 | **audit-team** | `audit-team/` | v1.5.2 | `audit-team/v1.5.2` |
+| **fix** | `fix/` | v1.0.0 | `fix/v1.0.0` |
 | **handoff** | `handoff/` | v1.0.3 | `handoff/v1.0.3` |
 | **lessons-doctor** | `lessons-doctor/` | v1.0.4 | `lessons-doctor/v1.0.4` |
 | **plan-my-grill** | `plan-my-grill/` | v1.6.2 | `plan-my-grill/v1.6.2` |
