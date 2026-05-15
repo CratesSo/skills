@@ -1,45 +1,37 @@
 ---
 name: slop-team-six
-description: "Run evidence-backed cleanup sweeps using subagents and lane playbooks."
+description: "Run evidence-backed cleanup sweeps that map lanes, edit in waves, and validate narrowly."
 ---
-Run an execution-first cleanup sweep using subagents: Map the repo, activate relevant cleanup lanes, prove findings before edits, execute validated work in waves, inspect risky work, validate narrowly, and report by lane.
+Run execution-first cleanup sweep. Scan repo, activate relevant cleanup lanes, prove relevance before edits, execute in evidence, implementation, review/validation, and final reporting waves, then report by lane. Follow instructions below carefully and exactly:
 
 # DEFAULTS
 
 - Default scope is whole repo.
 - Default stance is aggressive cleanup with evidence.
-- Use repo-native tools when present. If a useful tool is absent, stop and ask permission before installing it.
-- Spawn subagents using the role and task references listed below.
+- Use repo-native tools when present. If a useful analysis tool is absent, install shared tools before spawning agents or approve lane-scoped install commands in the relevant handoff.
+- Always spawn agents with `fork_context: false`.
 
 ## REFERENCE LOADING
 
-- Treat the directory containing this `SKILL.md` as `SKILL_ROOT`.
-- Always use absolute reference paths in handoffs. Never expect a spawned subagent to infer `SKILL_ROOT` from relative paths.
-- For each spawned subagent, provide its role reference first and its task prompt reference.
-- Use these exact role and task references when building subagent handoffs:
-
-- Mapping role: `${SKILL_ROOT}/references/roles/explorer-agents.md`
-- Mapping task: `${SKILL_ROOT}/references/wave-0.md`
-- Wave 1 role: `${SKILL_ROOT}/references/roles/wave-1-agents.md`
-- Wave 1 task: `${SKILL_ROOT}/references/wave-1.md`
-- Wave 2 role: `${SKILL_ROOT}/references/roles/wave-2-agents.md`
-- Wave 2 task: `${SKILL_ROOT}/references/wave-2.md`
-
-Pass absolute lane reference paths or pasted lane reference content only to `Wave 1` agents. Do not ask `Wave 2` agents to read lane references; pass parent-synthesized validated briefs instead.
+- Read spawned-agent prompt references only before spawning that agent.
+- Read `references/tooling.md` during preflight and build a parent-owned tool inventory before Wave 1 starts.
+- Pass lane reference paths to Wave 1 agents; do not load lane references in the parent unless needed to resolve ambiguity.
+- Do not ask Wave 2 or reviewer agents to read lane references. Pass them parent-synthesized validated briefs instead.
 
 ## CANONICAL FLOW
 
-1. Use the mapping role and task references to spawn the mapping subagent.
-2. While mapping runs, run preflight using the tooling reference.
-3. Resolve repo-relevant/useful tool availability before `Wave 1`.
-  - If a useful missing tool is needed, stop and ask the user if they want to install it.
-4. When mapping agent returns, map cleanup hotspots to lanes and decide which lanes are `ACTIVE`, `SKIP`, or `MERGE`.
-5. Use the `Wave 1` role, task, and activated lane references to spawn `Wave 1` subagents.
-6. When `Wave 1` is complete, triage its findings into validated implementation briefs.
-7. Use the `Wave 2` role and task references to spawn `Wave 2` subagents only for validated implementation using parent-synthesized briefs.
-8. Run the parent-owned post-Wave-2 check.
-9. Run narrowest useful validation when fully complete.
-10. Return the lane-grouped final report.
+1. Read `references/explorer_deep.md`, then spawn `explorer_deep` agent to map repo structure, exclusions, tool clues, and cleanup hotspots.
+2. While `explorer_deep` works, run `preflight` check and read `references/tooling.md`.
+3. When `explorer_deep` is done, map its cleanup hotspots to lanes and decide which lanes are active, skipped, or merged.
+4. Resolve tool availability before Wave 1; install useful shared tools when needed, or explicitly approve lane-scoped install commands in the relevant Wave 1 handoff.
+5. Read `references/wave1-cleanup.md`, then run `Wave 1` read-only cleanup discovery in numbered lane batches using the lane table below.
+6. After each numbered `Wave 1` batch finishes, triage results, merge overlaps, and reshape remaining batches. After all accepted `Wave 1` findings are triaged, convert them into validated implementation briefs.
+7. When accepted `Wave 1` findings are converted into implementation briefs, read `references/wave2-worker.md`, then spawn `Wave 2` worker agents only for validated implementation using the parent-synthesized brief.
+8. Run `Wave 3` review and validation: collect worker validation, run missing lane-relevant checks, and prepare review context for changed scope.
+9. For higher-risk completed lanes in `Wave 3`, read `references/reviewer.md`, then spawn `reviewer_heavy` with changed files, accepted Wave 1 proof, validation state, and parent-synthesized lane constraints.
+10. Triage reviewer findings. If follow-up edits are needed, send a new validated implementation brief with accepted proof to a `Wave 2` worker, then rerun the relevant `Wave 3` validation/review loop.
+11. Run `Wave 4` final reporting: confirm no unresolved blockers are hidden, reconcile lane statuses, and record final validation, skipped validation, risks, and leftovers.
+12. Return track-by-track summary with risks and leftovers.
 
 ## PREFLIGHT
 
@@ -48,48 +40,41 @@ Pass absolute lane reference paths or pasted lane reference content only to `Wav
 - languages in use
 - workspace layout
 - type systems and compiler configs
-- available analysis tools by language, using `${SKILL_ROOT}/references/tooling.md` as the command matrix
+- available analysis tools by language, using `references/tooling.md` as the command matrix
 - repo-native test, lint, or check commands
-- generated, vendor, cache, dist, build, coverage, lockfile, and fixture areas to exclude
+- obvious generated, vendor, cache, dist, build, coverage, and lockfile areas to exclude
 - available tools and real runnable commands for each active lane
+- missing-but-useful tools and any parent-approved lane-scoped install commands
+- relevant lane-specific tool references under `references/tools/`
 
-`Wave 1` must not start until tool availability is known and each `Wave 1` handoff lists usable commands.
+Read `references/tooling.md` during preflight. `Wave 1` must not start until tool availability is known and each `Wave 1` handoff lists usable commands plus any parent-approved install commands.
 
-## EIGHT LANES
+## LANES AND WAVE 1 BATCHES
 
-These are the eight cleanup lanes. Keep in this order:
+Don't force all eight lanes to edit. Before `Wave 1`, assign each lane one state: `ACTIVE`, `SKIP`, or `MERGE`.
 
-1. Dedupe and consolidation
-2. Shared type consolidation
-3. Unused code discovery and removal
-4. Circular dependency removal
-5. Weak type replacement
-6. Unnecessary defensive error handling removal
-7. Legacy, fallback, and deprecated path removal
-8. AI slop, stubs, and low-value comments cleanup
+| Lane | Batch | Cleanup category | Reference |
+| --- | --- | --- | --- |
+| 1 | `Wave 1.1` | Unused code discovery and removal | `references/lanes/lane-1-unused-code.md` |
+| 2 | `Wave 1.1` | Legacy, fallback, and deprecated path removal | `references/lanes/lane-2-legacy-fallbacks.md` |
+| 3 | `Wave 1.1` | AI slop, stubs, and low-value comments cleanup | `references/lanes/lane-3-ai-slop.md` |
+| 4 | `Wave 1.2` | Dedupe and consolidation | `references/lanes/lane-4-dedupe.md` |
+| 5 | `Wave 1.2` | Shared type consolidation | `references/lanes/lane-5-shared-types.md` |
+| 6 | `Wave 1.2` | Circular dependency removal | `references/lanes/lane-6-circular-deps.md` |
+| 7 | `Wave 1.3` | Weak type replacement | `references/lanes/lane-7-weak-types.md` |
+| 8 | `Wave 1.3` | Unnecessary defensive error handling removal | `references/lanes/lane-8-defensive-errors.md` |
 
-Don't force all eight lanes to edit (execution is adaptive).
+Run `Wave 1` discovery by numbered batch unless the scope is tiny enough that overlap is obviously low. Before spawning a `Wave 1` agent, assign it exactly one `ACTIVE` lane or one explicit `MERGE` group. If a lane is `MERGE`, list every lane in the group and every lane reference path the agent must read.
 
-Each lane must become:
+Pass only the assigned lane reference(s) plus relevant tool references to each `Wave 1` agent. Never pass the full `references/tooling.md` matrix to subagents.
 
-- `ACTIVE`: enough evidence to investigate in Wave 1
-- `SKIP`: repo does not meaningfully support lane
-- `MERGE`: lane overlaps another lane enough that one subagent should own both
+After each numbered discovery batch, triage findings, merge overlaps, and skip or reshape later lane assignments based on accepted evidence. Only run lanes in the same batch in parallel when their file scopes are unlikely to overlap.
 
-## LANE REFERENCES
+## WAVE 1: EVIDENCE
 
-Pass lane references to `Wave 1` subagents as discovery playbooks for lanes marked `ACTIVE` or `MERGE`:
+For each `ACTIVE` or `MERGE` lane assignment in the current numbered discovery batch, spawn a read-only `cleanup` agent to gather evidence-backed findings for parent triage.
 
-- Lane 1: `${SKILL_ROOT}/references/lanes/lane-1-dedupe.md`
-- Lane 2: `${SKILL_ROOT}/references/lanes/lane-2-shared-types.md`
-- Lane 3: `${SKILL_ROOT}/references/lanes/lane-3-unused-code.md`
-- Lane 4: `${SKILL_ROOT}/references/lanes/lane-4-circular-deps.md`
-- Lane 5: `${SKILL_ROOT}/references/lanes/lane-5-weak-types.md`
-- Lane 6: `${SKILL_ROOT}/references/lanes/lane-6-defensive-errors.md`
-- Lane 7: `${SKILL_ROOT}/references/lanes/lane-7-legacy-fallbacks.md`
-- Lane 8: `${SKILL_ROOT}/references/lanes/lane-8-ai-slop.md`
-
-If a lane is `MERGE`, list every lane in the group and every lane reference absolute path the subagent must read.
+Use `references/tooling.md` to build the available command list for each `Wave 1` handoff. If a needed tool is absent, install it before spawning the lane agent.
 
 ## TRIAGE
 
@@ -99,23 +84,43 @@ Before `Wave 2`:
 
 - Merge duplicate findings.
 - Reject weak or overlapping findings.
-- Collapse related lanes when they share files or root cause.
-- Decide which work should run in parallel and keep write scopes non-overlapping.
-- Convert accepted findings into validated implementation briefs with exact files, edits, lane constraints, risks, and validation expectations.
+- Collapse related lanes when they share the same files or root cause.
+- Decide which lanes need `worker_mini` versus `worker`.
+- Convert accepted Wave 1 findings into a validated implementation brief with exact files, edits, accepted evidence/proof, allowed write scope, disallowed files/work, lane constraints, risks, and validation expectations.
 
-## POST-WAVE-2 CHECK
+## WAVE 2: EXECUTION
 
-After `Wave 2` finishes, the you must:
+`Wave 2` implements only validated cleanup work:
 
-- Inspect changed files against the validated implementation briefs.
-- Confirm lane constraints were followed.
-- Confirm validation state and skipped checks.
-- Record residual risks for the final report.
+- Use `worker_mini` for narrow, obvious cleanup slices.
+- Use `worker` for cross-file or high risk cleanup slices.
+- Keep write scopes non-overlapping when parallel workers run.
 
-## FINAL RESPONSE
+## WAVE 3: REVIEW AND VALIDATION
 
-Return results grouped by lane using the template below:
+`Wave 3` is parent-owned review and validation after `Wave 2` edits:
 
+- Collect worker-reported validation and changed files.
+- Run missing lane-relevant checks before high-risk review.
+- Use repo-native tests, compilers, linters, and analyzers.
+- Give reviewer agents the changed files, accepted Wave 1 proof, and validation already run; do not ask reviewers to infer validation state.
+- Keep reviewer agents read-only.
+- If review requires edits, return to `Wave 2` with a new validated implementation brief and accepted proof, then rerun the relevant `Wave 3` checks.
+- Run final narrow validation after all review-driven follow-up edits are complete.
+
+## WAVE 4: FINAL REPORTING
+
+`Wave 4` is parent-owned closeout after `Wave 3` passes or all blockers are explicit:
+
+- Do not spawn new agents or make new edits in `Wave 4`. If a new blocker needs edits, return to `Wave 2`, then rerun the relevant `Wave 3` checks.
+- Confirm all worker and reviewer agents have completed and their outputs were triaged.
+- Reconcile every lane to exactly one final status from the final response template.
+- Report validation actually run, validation skipped or unavailable, and any residual risk without overclaiming.
+- Keep merged lanes visible in final reporting even when one implementation brief covered multiple lanes.
+
+Keep final response concise and return results grouped by lane, even if multiple lanes merged during execution, using the template inside the fenced block below:
+
+```md
 ## PREFLIGHT
 
 - **Languages:** [list languages]
@@ -124,14 +129,16 @@ Return results grouped by lane using the template below:
 
 ## LANE STATUS
 
-- **Lane 1:** `ACTIVE` | `SKIP` | `MERGE`
-- **Lane 2:** `ACTIVE` | `SKIP` | `MERGE`
-- **Lane 3:** `ACTIVE` | `SKIP` | `MERGE`
-- **Lane 4:** `ACTIVE` | `SKIP` | `MERGE`
-- **Lane 5:** `ACTIVE` | `SKIP` | `MERGE`
-- **Lane 6:** `ACTIVE` | `SKIP` | `MERGE`
-- **Lane 7:** `ACTIVE` | `SKIP` | `MERGE`
-- **Lane 8:** `ACTIVE` | `SKIP` | `MERGE`
+Use one of: `SKIPPED`, `INVESTIGATED`, `ACCEPTED`, `IMPLEMENTED`, `DEFERRED`, `MERGED INTO LANE n`.
+
+- **Lane 1:** [status]
+- **Lane 2:** [status]
+- **Lane 3:** [status]
+- **Lane 4:** [status]
+- **Lane 5:** [status]
+- **Lane 6:** [status]
+- **Lane 7:** [status]
+- **Lane 8:** [status]
 
 ## CHANGES BY LANE
 
@@ -144,4 +151,5 @@ Return results grouped by lane using the template below:
 
 ## RESIDUAL
 
-- [blockers, deferred lanes, or remaining risks]
+- any blockers, deferred lanes, or remaining risks
+```

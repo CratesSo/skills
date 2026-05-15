@@ -55,28 +55,12 @@ Run evidence-backed cleanup sweeps using subagents and lane playbooks.
 npx skills@latest add CratesSo/skills/slop-team-six
 ```
 
-#### Python Radon
-
-Run Radon complexity and maintainability scans on Python code.
-
-```sh
-npx skills@latest add CratesSo/skills/python-radon
-```
-
 #### Preflight
 
 Run production-readiness preflight checks across security, database, deployment, code, and Bandit scanning for Python.
 
 ```sh
 npx skills@latest add CratesSo/skills/preflight
-```
-
-#### Vulture
-
-Find and remove confirmed Python dead code.
-
-```sh
-npx skills@latest add CratesSo/skills/vulture
 ```
 
 ## Quality of Life
@@ -150,12 +134,10 @@ npx skills@latest add CratesSo/skills/yolo
 | **handoff** | `handoff/` | v1.0.3 | `handoff/v1.0.3` |
 | **lessons-doctor** | `lessons-doctor/` | v1.0.4 | `lessons-doctor/v1.0.4` |
 | **plan-my-grill** | `plan-my-grill/` | v1.6.2 | `plan-my-grill/v1.6.2` |
-| **preflight** | `preflight/` | v1.0.2 | `preflight/v1.0.2` |
-| **python-radon** | `python-radon/` | v1.0.0 | `python-radon/v1.0.0` |
+| **preflight** | `preflight/` | v1.0.3 | `preflight/v1.0.3` |
 | **report** | `report/` | v1.1.0 | `report/v1.1.0` |
-| **slop-team-six** | `slop-team-six/` | v2.0.3 | `slop-team-six/v2.0.3` |
+| **slop-team-six** | `slop-team-six/` | v2.0.4 | `slop-team-six/v2.0.4` |
 | **todo** | `todo/` | v0.1.1 | `todo/v0.1.1` |
-| **vulture** | `vulture/` | v1.0.0 | `vulture/v1.0.0` |
 | **yolo** | `yolo/` | v1.0.0 | `yolo/v1.0.0` |
 
 ## Install / Pin
