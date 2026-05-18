@@ -1,4 +1,4 @@
-# audit-team
+# audit-team <img src="./assets/icon.png" width="40" alt="audit-team icon">
 
 **Runs a staged audit flow using scoped waves of subagents.**
 

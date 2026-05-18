@@ -1,4 +1,4 @@
-# todo
+# todo <img src="./assets/icon.png" width="40" alt="todo icon">
 
 **Manage a repo-root `todo.md` with fast natural-language add, remove, edit, and list operations.**
 

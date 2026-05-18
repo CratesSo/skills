@@ -1,4 +1,4 @@
-# lessons-doctor
+# lessons-doctor <img src="./assets/icon.png" width="40" alt="lessons-doctor icon">
 - Process a repo `lessons.md` into its local `AGENTS.md`.
 - Move durable repo-wide lessons, renumber the remaining lessons, and report every decision.
 

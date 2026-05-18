@@ -1,4 +1,4 @@
-# plan-my-grill
+# plan-my-grill <img src="./assets/icon.png" width="40" alt="plan-my-grill icon">
 
 **Interrogates a plan or design until handoff-ready.**
 

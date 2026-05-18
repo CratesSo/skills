@@ -1,4 +1,4 @@
-# agents-doctor
+# agents-doctor <img src="./assets/icon.png" width="40" alt="agents-doctor icon">
 - Audit a repo `AGENTS.md` for duplicate, stale, verbose, or low-value guidance.
 - Report safe cleanup opportunities first, then apply only confirmed safe changes.
 

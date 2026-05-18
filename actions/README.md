@@ -1,4 +1,4 @@
-# actions
+# actions <img src="./assets/icon.png" width="40" alt="actions icon">
 
 **Create and manage Codex app workspace actions stored in `.codex/environments/environment.toml`.**
 

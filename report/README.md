@@ -1,4 +1,4 @@
-# report
+# report <img src="./assets/icon.png" width="40" alt="report icon">
 
 **Generates and opens a saved HTML report as a response format.**
 

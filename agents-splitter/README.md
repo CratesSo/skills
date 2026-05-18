@@ -1,4 +1,4 @@
-# agents-splitter
+# agents-splitter <img src="./assets/icon.png" width="40" alt="agents-splitter icon">
 - Audit large AGENTS.md files for reference-file extraction opportunities.
 - Split confirmed sections into adjacent AGENTS_<topic>.md files while preserving meaning.
 

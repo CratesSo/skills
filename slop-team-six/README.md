@@ -1,4 +1,4 @@
-# slop-team-six
+# slop-team-six <img src="./assets/icon.png" width="40" alt="slop-team-six icon">
 
 **Runs an execution-first cleanup sweep using scoped subagents.**
 

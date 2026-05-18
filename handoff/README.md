@@ -1,4 +1,4 @@
-# handoff
+# handoff <img src="./assets/icon.png" width="40" alt="handoff icon">
 
 **Summarizes the active thread context into a repo-root `HANDOFF.md` file for fresh-thread continuation.**
 

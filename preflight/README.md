@@ -1,4 +1,4 @@
-# preflight
+# preflight <img src="./assets/icon.png" width="40" alt="preflight icon">
 - Run a production-readiness audit before launch.
 - Checks security, database, deployment, code, and Bandit scanning evidence without marking unknowns as passes.
 
