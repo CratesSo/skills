@@ -6,10 +6,10 @@
 
 #### Plan My Grill
 
+<img src="./plan-my-grill/assets/icon.png" width="40" alt="Plan My Grill icon">
+
 !! WARNING: This is a good skill !!
 Interrogate plans and designs until they are handoff-ready.
-
-<img src="./plan-my-grill/assets/icon.png" width="40" alt="Plan My Grill icon">
 
 ```sh
 npx skills@latest add CratesSo/skills/plan-my-grill
@@ -17,9 +17,9 @@ npx skills@latest add CratesSo/skills/plan-my-grill
 
 #### Goal
 
-Design durable Codex self-goals with explicit success and stop conditions.
-
 <img src="./goal/assets/icon.png" width="40" alt="Goal icon">
+
+Design durable Codex self-goals with explicit success and stop conditions.
 
 ```sh
 npx skills@latest add CratesSo/skills/goal
@@ -27,9 +27,9 @@ npx skills@latest add CratesSo/skills/goal
 
 #### Actions
 
-Manage workspace actions in `.codex/environments/environment.toml`.
-
 <img src="./actions/assets/icon.png" width="40" alt="Actions icon">
+
+Manage workspace actions in `.codex/environments/environment.toml`.
 
 ```sh
 npx skills@latest add CratesSo/skills/actions
@@ -39,9 +39,9 @@ npx skills@latest add CratesSo/skills/actions
 
 #### Slop Team Six
 
-Run evidence-backed cleanup sweeps using subagents and lane playbooks.
-
 <img src="./slop-team-six/assets/icon.png" width="40" alt="Slop Team Six icon">
+
+Run evidence-backed cleanup sweeps using subagents and lane playbooks.
 
 ```sh
 npx skills@latest add CratesSo/skills/slop-team-six
@@ -49,9 +49,9 @@ npx skills@latest add CratesSo/skills/slop-team-six
 
 #### Audit Team
 
-Coordinate agentic audit workflows from scope mapping through triage and fixes.
-
 <img src="./audit-team/assets/icon.png" width="40" alt="Audit Team icon">
+
+Coordinate agentic audit workflows from scope mapping through triage and fixes.
 
 ```sh
 npx skills@latest add CratesSo/skills/audit-team
@@ -59,9 +59,9 @@ npx skills@latest add CratesSo/skills/audit-team
 
 #### Fix
 
-Investigate technical failures before applying narrow, verified fixes.
-
 <img src="./fix/assets/icon.png" width="40" alt="Fix icon">
+
+Investigate technical failures before applying narrow, verified fixes.
 
 ```sh
 npx skills@latest add CratesSo/skills/fix
@@ -69,9 +69,9 @@ npx skills@latest add CratesSo/skills/fix
 
 #### Preflight
 
-Run production-readiness preflight checks across security, database, deployment, code, and Bandit scanning for Python.
-
 <img src="./preflight/assets/icon.png" width="40" alt="Preflight icon">
+
+Run production-readiness preflight checks across security, database, deployment, code, and Bandit scanning for Python.
 
 ```sh
 npx skills@latest add CratesSo/skills/preflight
@@ -81,9 +81,9 @@ npx skills@latest add CratesSo/skills/preflight
 
 #### Agents Doctor
 
-Audit repo AGENTS.md files for safe cleanup opportunities.
-
 <img src="./agents-doctor/assets/icon.png" width="40" alt="Agents Doctor icon">
+
+Audit repo AGENTS.md files for safe cleanup opportunities.
 
 ```sh
 npx skills@latest add CratesSo/skills/agents-doctor
@@ -91,9 +91,9 @@ npx skills@latest add CratesSo/skills/agents-doctor
 
 #### Agents Splitter
 
-Split large AGENTS.md guidance into on-demand reference files.
-
 <img src="./agents-splitter/assets/icon.png" width="40" alt="Agents Splitter icon">
+
+Split large AGENTS.md guidance into on-demand reference files.
 
 ```sh
 npx skills@latest add CratesSo/skills/agents-splitter
@@ -101,9 +101,9 @@ npx skills@latest add CratesSo/skills/agents-splitter
 
 #### Lessons Doctor
 
-Move durable repo lessons into local AGENTS.md guidance.
-
 <img src="./lessons-doctor/assets/icon.png" width="40" alt="Lessons Doctor icon">
+
+Move durable repo lessons into local AGENTS.md guidance.
 
 ```sh
 npx skills@latest add CratesSo/skills/lessons-doctor
@@ -111,9 +111,9 @@ npx skills@latest add CratesSo/skills/lessons-doctor
 
 #### Handoff
 
-Generate concise continuation prompts from current thread context and tool results.
-
 <img src="./handoff/assets/icon.png" width="40" alt="Handoff icon">
+
+Generate concise continuation prompts from current thread context and tool results.
 
 ```sh
 npx skills@latest add CratesSo/skills/handoff
@@ -121,9 +121,9 @@ npx skills@latest add CratesSo/skills/handoff
 
 #### Report
 
-Generate complete standalone HTML reports from recap or custom requests.
-
 <img src="./report/assets/icon.png" width="40" alt="Report icon">
+
+Generate complete standalone HTML reports from recap or custom requests.
 
 ```sh
 npx skills@latest add CratesSo/skills/report
@@ -131,9 +131,9 @@ npx skills@latest add CratesSo/skills/report
 
 #### Todo
 
-Manage a repo-root `todo.md` with durable four-character item references.
-
 <img src="./todo/assets/icon.png" width="40" alt="Todo icon">
+
+Manage a repo-root `todo.md` with durable four-character item references.
 
 ```sh
 npx skills@latest add CratesSo/skills/todo
