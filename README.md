@@ -89,20 +89,20 @@ Move durable repo lessons into local AGENTS.md guidance.
 npx skills@latest add CratesSo/skills/lessons-doctor
 ```
 
-#### Report <img src="./report/assets/icon.png" width="40" alt="Report icon">
-
-Generate complete standalone HTML reports from recap or custom requests.
-
-```sh
-npx skills@latest add CratesSo/skills/report
-```
-
 #### Handoff <img src="./handoff/assets/icon.png" width="40" alt="Handoff icon">
 
 Generate concise continuation prompts from current thread context and tool results.
 
 ```sh
 npx skills@latest add CratesSo/skills/handoff
+```
+
+#### Report <img src="./report/assets/icon.png" width="40" alt="Report icon">
+
+Generate complete standalone HTML reports from recap or custom requests.
+
+```sh
+npx skills@latest add CratesSo/skills/report
 ```
 
 #### Todo <img src="./todo/assets/icon.png" width="40" alt="Todo icon">
