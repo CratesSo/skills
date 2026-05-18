@@ -149,7 +149,7 @@ npx skills@latest add CratesSo/skills/todo
 | **audit-team** | `audit-team/` | v1.5.3 | `audit-team/v1.5.3` |
 | **fix** | `fix/` | v1.0.1 | `fix/v1.0.1` |
 | **goal** | `goal/` | v1.0.1 | `goal/v1.0.1` |
-| **handoff** | `handoff/` | v1.0.4 | `handoff/v1.0.4` |
+| **handoff** | `handoff/` | v2.0.0 | `handoff/v2.0.0` |
 | **lessons-doctor** | `lessons-doctor/` | v1.0.4 | `lessons-doctor/v1.0.4` |
 | **plan-my-grill** | `plan-my-grill/` | v1.6.3 | `plan-my-grill/v1.6.3` |
 | **preflight** | `preflight/` | v1.0.4 | `preflight/v1.0.4` |
